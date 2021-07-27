@@ -1,0 +1,50 @@
+{
+  "appenders": {
+    "console": {
+      "type": "console"
+    },
+    "express": {
+      "type": "console"
+    },
+    "systemLog": {
+      "type": "dateFile",
+      "filename": "logs/access.log",
+      "pattern": "-yyyy-MM-dd",
+      "alwaysIncludePattern": false
+    },
+    "browserLog": {
+      "type": "dateFile",
+      "filename": "logs/browser.log",
+      "pattern": "-yyyy-MM-dd",
+      "alwaysIncludePattern": false
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "console"
+      ],
+      "level": "info"
+    },
+    "express": {
+      "appenders": [
+        "express"
+      ],
+      "level": "info"
+    },
+    "system": {
+      "appenders": [
+        "console",
+        "systemLog"
+      ],
+      "level": "debug"
+    },
+    "browser": {
+      "appenders": [
+        "console",
+        "browserLog"
+      ],
+      "level": "info"
+    }
+  }
+}
