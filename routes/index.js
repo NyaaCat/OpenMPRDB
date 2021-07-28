@@ -1,15 +1,10 @@
-var router = require('koa-router')();
+const Router = require('koa-router');
+const homeRouter = require('./home');
+const submitRouter = require('./submit');
 
-router.get('/', async function (next) {
-  await this.render('index', {
-    title: 'Hello World Koa!'
-  });
-});
 
-router.get('/foo', async function (next) {
-  await this.render('index', {
-    title: 'Hello World foo!'
-  });
-});
+let router = new Router();
+router.use('/', homeRouter.routes(), homeRouter.allowedMethods())
+router.use('/submit', submitRouter.routes(), submitRouter.allowedMethods())
 
 module.exports = router;

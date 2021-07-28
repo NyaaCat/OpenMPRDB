@@ -3,18 +3,12 @@
     "console": {
       "type": "console"
     },
-    "express": {
+    "koa2": {
       "type": "console"
     },
     "systemLog": {
       "type": "dateFile",
       "filename": "logs/access.log",
-      "pattern": "-yyyy-MM-dd",
-      "alwaysIncludePattern": false
-    },
-    "browserLog": {
-      "type": "dateFile",
-      "filename": "logs/browser.log",
       "pattern": "-yyyy-MM-dd",
       "alwaysIncludePattern": false
     }
@@ -26,9 +20,9 @@
       ],
       "level": "info"
     },
-    "express": {
+    "koa2": {
       "appenders": [
-        "express"
+        "koa2"
       ],
       "level": "info"
     },
@@ -38,13 +32,6 @@
         "systemLog"
       ],
       "level": "debug"
-    },
-    "browser": {
-      "appenders": [
-        "console",
-        "browserLog"
-      ],
-      "level": "info"
     }
   }
 }
