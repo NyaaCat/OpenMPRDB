@@ -4,6 +4,6 @@ const initModels = require("./models/init-models");
 
 const sequelize = new Sequelize(config.database, config.user,config.password,config);
 let db = initModels(sequelize);
-
+db.sequelize = sequelize;
 
 module.exports = db;

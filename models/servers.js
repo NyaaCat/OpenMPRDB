@@ -9,12 +9,18 @@ module.exports = function(sequelize, DataTypes) {
     uuid: {
       type: DataTypes.STRING(32),
       allowNull: false,
-      comment: "v4 服务器uuid标识"
+      comment: "v4 服务器uuid标识",
+      unique: "uuid"
     },
-    fingerprint: {
+    key_id: {
       type: DataTypes.STRING(64),
       allowNull: false,
-      comment: "服务器指纹"
+      comment: "服务器签名 key id"
+    },
+    public_key: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      comment: "服务器公钥"
     }
   }, {
     sequelize,
@@ -27,6 +33,14 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id" },
+        ]
+      },
+      {
+        name: "uuid",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "uuid" },
         ]
       },
     ]
