@@ -8,6 +8,7 @@ const router = require('./routes/index');
 const log4js = require('./component/log4js');
 const httpTools = require('./component/httpTools');
 const errorCode = require('./component/errorCode');
+const pgpTools = require('./utils/pgpTools');
 
 
 const db = require('./db');
@@ -19,6 +20,7 @@ onerror(app);
 app.context.db = db;
 app.context.httpTools = httpTools;
 app.context.errorCode = errorCode;
+app.context.pgpTools = pgpTools;
 
 app.use(require('koa-bodyparser')());
 app.use(json());

@@ -7,7 +7,7 @@ serverRouter.put('/register',async function(ctx){
     let errorCode = ctx.errorCode;
     let params = ctx.request.body;
     try {
-        let res = serverService.registerServer(params);
+        let res = await serverService.registerServer(params,ctx);
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
