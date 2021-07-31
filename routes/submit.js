@@ -32,19 +32,59 @@ submitRouter.delete('/uuid/:submit_uuid', async function (ctx) {
 });
 
 submitRouter.get('/servers', async function (ctx) {
-    ctx.body = 'this is a submit/servers response!';
+    let errorCode = ctx.errorCode;
+    let params = ctx.request.query;
+    try {
+        let res = await submitService.servers(params,ctx);
+        ctx.httpTools.httpResponse(ctx,res);
+    } catch (e) {
+        let errorMsg = errorCode.getErrorMsg(e)
+        ctx.loggerKoa2('当前submit/servers请求报错',errorMsg);
+        let status = 401;
+        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
+    }
 });
 
 submitRouter.get('/uuid/:submit_uuid', async function (ctx) {
-    ctx.body = 'this is a get method submit/uuid/'+ctx.params.submit_uuid+' response!';
+    let errorCode = ctx.errorCode;
+    let submit_uuid = ctx.params.submit_uuid;
+    try {
+        let res = await submitService.getSubmit(submit_uuid,ctx);
+        ctx.httpTools.httpResponse(ctx,res);
+    } catch (e) {
+        let errorMsg = errorCode.getErrorMsg(e)
+        ctx.loggerKoa2('当前submit/uuid/'+submit_uuid+'请求报错',errorMsg);
+        let status = 401;
+        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
+    }
 });
 
-submitRouter.get('/server/:submit_uuid', async function (ctx) {
-    ctx.body = 'this is a get method submit/server/'+ctx.params.submit_uuid+' response!';
+submitRouter.get('/server/:server_uuid', async function (ctx) {
+    let errorCode = ctx.errorCode;
+    let server_uuid = ctx.params.server_uuid;
+    try {
+        let res = await submitService.getServerSubmitList(server_uuid,ctx);
+        ctx.httpTools.httpResponse(ctx,res);
+    } catch (e) {
+        let errorMsg = errorCode.getErrorMsg(e)
+        ctx.loggerKoa2('当前submit/server/'+server_uuid+'请求报错',errorMsg);
+        let status = 401;
+        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
+    }
 });
 
-submitRouter.get('/key/:submit_uuid', async function (ctx) {
-    ctx.body = 'this is a get method submit/key/'+ctx.params.submit_uuid+' response!';
+submitRouter.get('/key/:server_key_id', async function (ctx) {
+    let errorCode = ctx.errorCode;
+    let server_key_id = ctx.params.server_key_id;
+    try {
+        let res = await submitService.getServerSubmitListByKeyId(server_key_id,ctx);
+        ctx.httpTools.httpResponse(ctx,res);
+    } catch (e) {
+        let errorMsg = errorCode.getErrorMsg(e)
+        ctx.loggerKoa2('当前submit/server/'+server_key_id+'请求报错',errorMsg);
+        let status = 401;
+        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
+    }
 });
 
 
