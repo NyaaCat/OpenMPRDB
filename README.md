@@ -17,7 +17,7 @@ PGP signed message content
 
 | Field | Type | Value |
 | --- | --- | --- |
-| `server_name` | string | "Some server" |
+| `server_name` | string | `Some server` |
   
 Example
 
