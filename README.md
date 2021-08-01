@@ -160,6 +160,6 @@ A typical workflow:
 
 1. Client A (a server plugin, for example) initialize and generates a pair of PGP key. It sends its public key with a signed message to Server X (an OpenMPRDB instance) to verify and register itself. Server X will return a registered UUID to Client A.
 2. Client A encountered bad guys, banned them then reported the player UUIDs, also with other complementary information in signed messages to Server X. Server X idenfied these messages are from Client A with a good signature, and so saved to database.
-3. Other servers who trusted Client A's public key, gets the information from Server X, and verified the messages' integrity, hence banned these bad guys as well.
+3. Other servers who trusted Client A's public key, get the information from Server X, and verified the messages' integrity, hence banned these bad guys as well.
 
 Result: other servers are protected from these bad guys.
