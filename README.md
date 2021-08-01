@@ -66,7 +66,7 @@ Version: GnuPG v1.4.13 (GNU/Linux)
 
 Response
 
-- HTTP 200 `{"status":"OK","uuid":"67ae556c-7123-4..."}` // Record UUID
+- HTTP 201 `{"status":"OK","uuid":"67ae556c-7123-4..."}` // Record UUID
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 - HTTP 401 `{"status":"NG","reason":"401 Unauthorized"}`
   
