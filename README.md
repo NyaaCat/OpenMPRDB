@@ -1,6 +1,6 @@
 OpenMPRDB is an open source implementation of the "Player Reputation Database" for public Minecraft servers.
 
-## API v1
+# API v1
 
 #### Register
 
@@ -134,7 +134,7 @@ Response
 - HTTP 200 `{"status":"OK","submits":"[{"timestamp":1627372444,"uuid":"570345ac-fc71-4...","content":"-----BEGIN PGP SIGNED MESSAGE-----..."},{...]"}`
 - HTTP 404 `{"status":"NG","reason":"404 Not Found"}`
 
-## Clients
+# Clients
 
 - CLI
 - Spigot
@@ -142,9 +142,9 @@ Response
 - BungeeCord
 - Velocity
 
-## FAQ
+# FAQ
 
-### Why
+#### Why
 
 Bad manner has been a trouble since the early years of public Minecraft server communities. This project will record such behaviour and share the information across server communities, to stop those suckers before they can join and destroy another server.
 
@@ -154,7 +154,7 @@ Due to the fact that message stored on OpenMPRDB server cannot be modified, anyo
 
 BTW, "Reputation" is a neutral word. OpenMPRDB can also accept positive reputation as well.
 
-### How
+#### How
 
 A typical workflow:
 
