@@ -46,7 +46,7 @@ PGP signed message content
 | `uuid` | string | `a5fac3b4-ff62-4...` | Locally generated |
 | `timestamp` | number | `1627802588` | |
 | `player_uuid` | string | `09811bde-9399-4...` | |
-| `points` | number | `-1` | Value from `-1` to `1` |
+| `points` | number | `-1` | Value from `-1` (very negative) to `1` (very positive) |
 | `comment` | string | `Banned for cheating` | Max length: 255 bytes |
 
 Example
