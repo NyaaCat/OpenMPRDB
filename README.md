@@ -23,7 +23,7 @@ Example
 
 ```
 {
-  "message":"----- BEGIN PGP SIGNED MESSAGE -----\n {"server_name":"Some server"}...",
+  "message":"-----BEGIN PGP SIGNED MESSAGE-----\nserver_name: Some server\n-----BEGIN PGP SIGNATURE...",
   "public_key":"----- BEGIN PGP PUBLIC KEY -----..."
 }
 ```
@@ -55,7 +55,11 @@ Example
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-{"uuid":"a5fac3b4-ff62-4...","timestamp":1627802588,"player_uuid":"09811bde-9399-4...","points":-1,"comment":"Banned for..."}
+uuid: a5fac3b4-ff62-4...
+timestamp: 1627802588
+player_uuid: 09811bde-9399-4...
+points: -1
+comment: Banned for...
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.13 (GNU/Linux)
@@ -89,7 +93,8 @@ Example
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-{"timestamp":1627802588,"comment":"Revert..."}
+timestamp: 1627802588
+comment: Revert...
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.13 (GNU/Linux)
