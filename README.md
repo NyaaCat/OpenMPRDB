@@ -2,7 +2,7 @@ OpenMPRDB is an open source implementation of the "Player Reputation Database" f
 
 # API v1
 
-#### Register
+### Register
 
 PUT `/v1/server/register`
 
@@ -33,7 +33,7 @@ Response
 - HTTP 201 `{"status":"OK","uuid":"a5fac3b4-ff62-4..."}`
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 
-#### New Submit
+### New Submit
 
 PUT `/v1/submit/new`
 
@@ -70,7 +70,7 @@ Response
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 - HTTP 401 `{"status":"NG","reason":"401 Unauthorized"}`
   
-#### Delete Submit
+### Delete Submit
 
 DELETE `/v1/submit/uuid/<submit_uuid>`
 
@@ -103,7 +103,7 @@ Response
 - HTTP 200 `{"status":"OK","uuid":"67ae556c-7123-4..."}`
 - HTTP 401 `{"status":"NG","reason":"401 Unauthorized"}`
 
-#### Get all servers
+### Get all servers
 
 GET `/v1/submit/servers`
 
@@ -113,7 +113,7 @@ Response
 - HTTP 502 `{"status":"NG","reason":"502 Internal Server Error"}`
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 
-#### Get submit details
+### Get submit details
 
 GET `/v1/submit/uuid/<submit_uuid>`
 
@@ -123,7 +123,7 @@ Response
 - HTTP 404 `{"status":"NG","reason":"404 Not Found"}`
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 
-#### Get submits by server UUID or server key ID
+### Get submits by server UUID or server key ID
 
 GET `/v1/submit/server/<server_uuid>`
 
@@ -144,7 +144,7 @@ Response
 
 # FAQ
 
-#### Why
+### Why
 
 Bad manner has been a trouble since the early years of public Minecraft server communities. This project will record such behaviour and share the information across server communities, to stop those suckers before they can join and destroy another server.
 
@@ -154,7 +154,7 @@ Due to the fact that message stored on OpenMPRDB server cannot be modified, anyo
 
 BTW, "Reputation" is a neutral word. OpenMPRDB can also accept positive reputation as well.
 
-#### How
+### How
 
 A typical workflow:
 
