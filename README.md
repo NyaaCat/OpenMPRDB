@@ -81,7 +81,7 @@ PGP signed message content
 | Field | Type | Value | Comment |
 | --- | --- | --- | --- |
 | `timestamp` | number | `1627802588` | |
-| `comment` | string | `Appealed for pardon` | Max length: 255 bytes |
+| `comment` | string | `Revert incorrect record` | Max length: 255 bytes |
 
 Example
 
@@ -89,7 +89,7 @@ Example
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-{"timestamp":1627802588,"comment":"Appealed for..."}
+{"timestamp":1627802588,"comment":"Revert..."}
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.13 (GNU/Linux)
