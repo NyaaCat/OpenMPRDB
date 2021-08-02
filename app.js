@@ -26,7 +26,7 @@ app.use(require('koa-bodyparser')());
 app.use(json());
 app.use(log4js.koaLogger());
 
-app.use(require('koa-static')(__dirname + '/public'));
+//app.use(require('koa-static')(__dirname + '/public'));
 
 // routes definition
 app.use(router.routes()).use(router.allowedMethods());
