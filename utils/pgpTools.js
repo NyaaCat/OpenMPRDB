@@ -7,7 +7,24 @@ module.exports ={
             verificationKeys: publicKey
         });
         let { verified, keyID} = verificationResult.signatures[0];
-        let messageData = JSON.parse(verificationResult.data);
+        //因为这玩意现在不是json了，换成kv模式，需要解析一次
+        //let messageData = JSON.parse(verificationResult.data);
+        let data = verificationResult.data;
+        let dataArr = data.split('\n');
+        let messageData = {};
+        for(let dataItem of dataArr){
+            dataItem = dataItem.replaceAll('\r','');
+            let dataItemArr = dataItem.split(':');
+            if(dataItemArr.length===0){
+                continue;
+            }
+            //如果解析出来的每一行长度不是2说明传上来不是key:value直接抛出错误
+            if(dataItemArr){
+                throw 'messageDataInvaid'
+            }
+            messageData[dataItemArr[0]] = dataItemArr[1]
+        }
+
         return {verified,keyID,messageData};
     },
     async getServerDataAndVerified(params,ctx){

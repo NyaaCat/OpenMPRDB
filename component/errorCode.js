@@ -1,4 +1,4 @@
-const errorCodeZh = require('./config/error_code_zh.json');
+const errorCodeZh = require('../config/error_code_zh.json');
 const log4js = require('./log4js').getLogger();
 let koaLog = log4js.getLogger('koa');
 const errorCodeObj = {

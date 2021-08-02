@@ -3,7 +3,7 @@ const Koa = require('koa')
     , json = require('koa-json')
     , onerror = require('koa-onerror');
 
-const router = require('./routes/index');
+const router = require('./routes');
 
 const log4js = require('./component/log4js');
 const httpTools = require('./component/httpTools');

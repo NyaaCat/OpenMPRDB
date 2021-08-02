@@ -25,7 +25,8 @@
     "mysql2": "^2.2.5",
     "openpgp": "^5.0.0-5",
     "sequelize": "^6.6.5",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"

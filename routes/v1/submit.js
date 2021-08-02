@@ -1,5 +1,5 @@
 const router = require('koa-router');
-const submitService = require('../service/submit');
+const submitService = require('../../service/submit');
 let submitRouter = new router();
 
 submitRouter.put('/new',async function(ctx){

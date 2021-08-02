@@ -6,5 +6,11 @@
   "messageNotExist": "pgp消息不存在",
   "serverNotExist": "服务器配置信息不存在",
   "publicKeyDuplicate": "key_id与已知服务器key_id重复，请重新生成公钥注册",
-  "deleteFailed": "删除失败"
+  "deleteFailed": "删除失败",
+  "messageDataInvaid": "message的内容字符非法，非标准的key:value形式",
+  "UUIDInvaid": "UUID未传或者非标准UUID",
+  "timestampInvaid": "时间戳不存在或者非正整数",
+  "playerUUIDInvaid": "player_uuid未传或者非标准UUID",
+  "pointsNotNumber": "points必须是一个数字",
+  "pointsIntervalInvaid": "points必须在[-1，-0.1]或者[0.1,1]之间"
 }
