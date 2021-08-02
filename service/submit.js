@@ -15,18 +15,12 @@ module.exports ={
             throw 'playerUUIDInvaid'
         }
         //校验传值区间
-        let pointsIntervalList = [
-            {min:0.1,max:1},
-            {min:-1,max:-0.1},
-        ];
         let points = parseFloat(messageData.points);
         if(isNaN(points)){
             throw 'pointsNotNumber'
         }
-        for(let pointsInterval of pointsIntervalList){
-            if(points<pointsInterval.min||points>pointsInterval.max){
-                throw 'pointsIntervalInvaid'
-            }
+        if((points>-0.1&&points<0.1)||points>1||points<-1){
+            throw 'pointsIntervalInvaid'
         }
         //取一位小数
         points = points.toFixed(1);
