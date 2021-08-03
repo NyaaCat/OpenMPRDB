@@ -114,6 +114,10 @@ Response
 
 GET `/v1/submit/servers`
 
+Query Params:
+
+- `?limit=N` return last N servers (hard limit configured at server)
+
 Response
 
 - HTTP 200 `{"status":"OK","servers":"[{"uuid":"45dd64ba-a2a9-4...","fingerprint":"0xDCC453C2140AC9F63..."},{...]"}`
@@ -135,6 +139,11 @@ Response
 GET `/v1/submit/server/<server_uuid>`
 
 GET `/v1/submit/key/<server_key_id>`
+
+Query Params:
+
+- `?limit=N` return last N submits (hard limit configured at server)
+- `?after=<timestamp>` return submits after a specific time
 
 Response
 
