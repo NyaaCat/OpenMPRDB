@@ -10,7 +10,7 @@ submitRouter.put('/new',async function(ctx){
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/new请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/new请求报错',errorMsg);
         let status = 400;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
@@ -25,7 +25,7 @@ submitRouter.delete('/uuid/:submit_uuid', async function (ctx) {
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/delete请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/delete请求报错',errorMsg);
         let status = 401;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
@@ -39,7 +39,7 @@ submitRouter.get('/servers', async function (ctx) {
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/servers请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/servers请求报错',errorMsg);
         let status = 401;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
@@ -53,7 +53,7 @@ submitRouter.get('/uuid/:submit_uuid', async function (ctx) {
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/uuid/'+submit_uuid+'请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/uuid/'+submit_uuid+'请求报错',errorMsg);
         let status = 401;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
@@ -67,7 +67,7 @@ submitRouter.get('/server/:server_uuid', async function (ctx) {
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/server/'+server_uuid+'请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/server/'+server_uuid+'请求报错',errorMsg);
         let status = 401;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
@@ -81,7 +81,7 @@ submitRouter.get('/key/:server_key_id', async function (ctx) {
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前submit/server/'+server_key_id+'请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前submit/server/'+server_key_id+'请求报错',errorMsg);
         let status = 401;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }

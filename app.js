@@ -22,6 +22,7 @@ app.context.httpTools = httpTools;
 app.context.errorCode = errorCode;
 app.context.pgpTools = pgpTools;
 
+
 app.use(require('koa-bodyparser')());
 app.use(json());
 app.use(log4js.koaLogger());

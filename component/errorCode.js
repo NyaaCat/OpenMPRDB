@@ -13,7 +13,7 @@ module.exports = {
         }
         //如果是标准的Error对象的话则取其中的message部分
         if(errorKey instanceof Error){
-            return errorKey.message
+            return errorKey.stack
         }
         koaLog.error(errorCodeObj[lang]['errorCodeMsgNotFound']);
         return '';

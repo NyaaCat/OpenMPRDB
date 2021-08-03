@@ -1,7 +1,7 @@
 const openpgp = require('openpgp');
 module.exports ={
-    async getKeyIdBySignature(signedMessage,publicKey){
-
+    async getKeyIdBySignature(signedMessage,publicKeyArmored){
+        let publicKey = await openpgp.readKey({ armoredKey: publicKeyArmored });
         let verificationResult = await openpgp.verify({
             message: signedMessage,
             verificationKeys: publicKey
@@ -13,13 +13,14 @@ module.exports ={
         let dataArr = data.split('\n');
         let messageData = {};
         for(let dataItem of dataArr){
-            dataItem = dataItem.replaceAll('\r','');
+            dataItem = dataItem.replace(/\\r/g,'');
+            dataItem = dataItem.replace(/ /g,'');
             let dataItemArr = dataItem.split(':');
-            if(dataItemArr.length===0){
+            if(dataItemArr.length===1){
                 continue;
             }
             //如果解析出来的每一行长度不是2说明传上来不是key:value直接抛出错误
-            if(dataItemArr){
+            if(dataItemArr.length<2){
                 throw 'messageDataInvaid'
             }
             messageData[dataItemArr[0]] = dataItemArr[1]
@@ -32,12 +33,12 @@ module.exports ={
         if(!message){
             throw 'messageNotExist';
         }
-        let signedMessage = await openpgp.readCleartextMessage({message});
+        let signedMessage = await openpgp.readCleartextMessage({cleartextMessage:message});
         let keyIds = signedMessage.getSigningKeyIDs();
         let keyId = keyIds[0].toHex();
         //查询数据库中对应的server获取公钥
         let {servers} = ctx.db;
-        let server = await servers.find({
+        let server = await servers.findOne({
             where:{
                 key_id:keyId
             }
@@ -45,11 +46,10 @@ module.exports ={
         if(!server){
             throw 'serverNotExist';
         }
-        let publicKey = servers.public_key;
-        let {verified,messageData} = await ctx.pgpTools.getKeyIdBySignature(signedMessage,publicKey);
+        let {verified,messageData} = await ctx.pgpTools.getKeyIdBySignature(signedMessage,server.public_key);
         //验证失败会直接throws on invalid signature 所以这边不用做判断了
         let isVerified = await verified;
-        ctx.loggerKoa2('当前server/register请求isVerified',isVerified);
+        ctx.loggerKoa2.info('当前请求isVerified',isVerified);
         return {message,messageData,server};
     }
 }

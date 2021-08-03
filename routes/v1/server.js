@@ -11,7 +11,7 @@ serverRouter.put('/register',async function(ctx){
         ctx.httpTools.httpResponse(ctx,res);
     } catch (e) {
         let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2('当前server/register请求报错',errorMsg);
+        ctx.loggerKoa2.error('当前server/register请求报错',errorMsg);
         let status = 400;
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
