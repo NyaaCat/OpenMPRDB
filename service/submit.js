@@ -63,7 +63,7 @@ module.exports ={
         let serverList = await  servers.findAll({
             attributes:['uuid','server_name','key_id','public_key']
         });
-        return serverList;
+        return {servers:serverList};
     },
     async getSubmit(submit_uuid,ctx){
         let {submits} = ctx.db;
@@ -89,7 +89,7 @@ module.exports ={
         if(!submitList||submitList.length===0){
             throw 'submitDataNotExist';
         }
-        return submitList
+        return {submits: submitList}
     },
     async getServerSubmitListByKeyId(server_key_id,ctx){
         let {submits,servers} = ctx.db;
@@ -110,6 +110,6 @@ module.exports ={
         if(!submitList||submitList.length===0){
             throw 'submitDataNotExist';
         }
-        return submitList
+        return {submits: submitList}
     }
 };
