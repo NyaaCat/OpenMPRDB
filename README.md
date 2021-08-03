@@ -15,6 +15,8 @@ PUT `/v1/server/register`
 
 PGP signed message content
 
+`text/plain`
+
 | Field | Type | Value |
 | --- | --- | --- |
 | `server_name` | string | `Some server` |
@@ -24,7 +26,7 @@ Example
 ```
 {
   "message":"-----BEGIN PGP SIGNED MESSAGE-----\nserver_name: Some server\n-----BEGIN PGP SIGNATURE...",
-  "public_key":"----- BEGIN PGP PUBLIC KEY -----..."
+  "public_key":"-----BEGIN PGP PUBLIC KEY-----..."
 }
 ```
 
