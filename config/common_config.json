@@ -1,4 +1,5 @@
 {
     "submitsQueryLimit": 1024,
-    "requestInterval": 1000
+    "requestInterval": 1000,
+    "host": "127.0.0.1"
 }
