@@ -112,7 +112,7 @@ Response
 
 ### Get all servers
 
-GET `/v1/submit/servers`
+GET `/v1/server/list`
 
 Query Params:
 
