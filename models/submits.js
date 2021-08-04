@@ -44,6 +44,13 @@ module.exports = function(sequelize, DataTypes) {
           { name: "uuid" },
         ]
       },
+      {
+        name: "server_uuid",
+        using: "BTREE",
+        fields: [
+          { name: "server_uuid" },
+        ]
+      },
     ]
   });
 };

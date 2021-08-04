@@ -12,5 +12,7 @@
   "timestampInvaid": "时间戳不存在或者非正整数",
   "playerUUIDInvaid": "player_uuid未传或者非标准UUID",
   "pointsNotNumber": "points必须是一个数字",
-  "pointsIntervalInvaid": "points必须在[-1，-0.1]或者[0.1,1]之间"
+  "pointsIntervalInvaid": "points必须在[-1，-0.1]或者[0.1,1]之间",
+  "afterInvaid": "after参数非时间戳格式",
+  "limitInvaid": "limit参数必须为正整数"
 }

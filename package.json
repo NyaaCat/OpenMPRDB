@@ -6,10 +6,12 @@
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate_tables": "node tools/generateTables.js"
   },
   "dependencies": {
     "co": "^4.6.0",
+    "dateformat": "^4.5.1",
     "debug": "^2.6.3",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",

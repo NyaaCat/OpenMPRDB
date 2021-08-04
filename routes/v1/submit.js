@@ -31,20 +31,6 @@ submitRouter.delete('/uuid/:submit_uuid', async function (ctx) {
     }
 });
 
-submitRouter.get('/servers', async function (ctx) {
-    let errorCode = ctx.errorCode;
-    let params = ctx.request.query;
-    try {
-        let res = await submitService.servers(params,ctx);
-        ctx.httpTools.httpResponse(ctx,res);
-    } catch (e) {
-        let errorMsg = errorCode.getErrorMsg(e)
-        ctx.loggerKoa2.error('当前submit/servers请求报错',errorMsg);
-        let status = 401;
-        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
-    }
-});
-
 submitRouter.get('/uuid/:submit_uuid', async function (ctx) {
     let errorCode = ctx.errorCode;
     let submit_uuid = ctx.params.submit_uuid;

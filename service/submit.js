@@ -1,6 +1,7 @@
-const openpgp = require('openpgp');
 const validator = require('validator');
 const { v4: uuidv4 } = require('uuid');
+const { Op } = require("sequelize");
+const dateFormat = require('dateformat');
 
 module.exports ={
     async addNew(params,ctx){
@@ -58,13 +59,7 @@ module.exports ={
         }
         return {uuid};
     },
-    async servers(params,ctx){
-        let {servers} = ctx.db;
-        let serverList = await  servers.findAll({
-            attributes:['uuid','server_name','key_id','public_key']
-        });
-        return {servers:serverList};
-    },
+
     async getSubmit(submit_uuid,ctx){
         let {submits} = ctx.db;
         let submit = await  submits.findOne({
@@ -80,12 +75,37 @@ module.exports ={
     },
     async getServerSubmitList(server_uuid,ctx){
         let {submits} = ctx.db;
-        let submitList = await submits.findAll({
-            where:{
-                server_uuid:server_uuid
-            },
-            attributes:['uuid','server_uuid','content']
-        });
+        let queryParams = ctx.request.query;
+        let whereCondition = {
+            server_uuid:server_uuid
+        };
+
+        let options = {
+            attributes:['id','uuid','server_uuid','content'],
+            where:whereCondition,
+            order:[['id','desc']]
+        };
+
+        //按条件查询
+        let limit;
+        if(queryParams.limit){
+            if(!/^[0-9]*[1-9][0-9]*$/.test(queryParams.limit)){
+                throw 'limitInvaid'
+            }
+            limit = queryParams.limit;
+        }else{
+            limit = ctx.commonConfig.submitsQueryLimit
+        }
+        options.limit = parseInt(limit);
+        if(queryParams.after){
+            if(!/^[0-9]*[1-9][0-9]*$/.test(queryParams.after)){
+                throw 'afterInvaid'
+            }
+            whereCondition.createdAt = {
+                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd h:MM:ss")
+            }
+        }
+        let submitList = await submits.findAll(options);
         if(!submitList||submitList.length===0){
             throw 'submitDataNotExist';
         }
@@ -101,12 +121,35 @@ module.exports ={
         if(!server){
             throw 'serverNotExist';
         }
-        let submitList = await submits.findAll({
-            where:{
-                server_uuid:server.uuid
-            },
-            attributes:['uuid','server_uuid','content']
-        });
+        let queryParams = ctx.request.query;
+        let whereCondition = {
+            server_uuid:server.uuid
+        };
+        let options = {
+            attributes:['id','uuid','server_uuid','content'],
+            where:whereCondition,
+            order:[['id','desc']]
+        };
+        //按条件查询
+        let limit;
+        if(queryParams.limit){
+            if(!/^[0-9]*[1-9][0-9]*$/.test(queryParams.limit)){
+                throw 'limitInvaid'
+            }
+            limit = queryParams.limit;
+        }else{
+            limit = ctx.commonConfig.submitsQueryLimit
+        }
+        options.limit = parseInt(limit);
+        if(queryParams.after){
+            if(!/^[0-9]*[1-9][0-9]*$/.test(queryParams.after)){
+                throw 'afterInvaid'
+            }
+            whereCondition.createdAt = {
+                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd h:MM:ss")
+            }
+        }
+        let submitList = await submits.findAll(options);
         if(!submitList||submitList.length===0){
             throw 'submitDataNotExist';
         }

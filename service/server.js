@@ -47,5 +47,21 @@ module.exports ={
         return {
             uuid:uuid
         };
+    },
+    async getServers(params,ctx){
+        let {servers} = ctx.db;
+        let options = {
+            attributes:['id','uuid','server_name','key_id','public_key'],
+            order:[['id','desc']]
+        };
+        let limit;
+        if(params.limit){
+            limit = params.limit;
+        }else{
+            limit = ctx.commonConfig.submitsQueryLimit
+        }
+        options.limit = limit;
+        let serverList = await  servers.findAll(options);
+        return {servers:serverList};
     }
 };
