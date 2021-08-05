@@ -162,13 +162,13 @@ Response
 
 ### Why
 
-Bad manner has been a trouble since the early years of public Minecraft server communities. This project will record such behaviour and share the information across server communities, to stop those suckers before they can join and destroy another server.
+Bad manner has been a trouble since the early years of public Minecraft server communities. This project will record such behavior and share the information across server communities, to stop those suckers before they can join and destroy another server.
 
 OpenMPRDB is neutral by design. It utilizes [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) signature to ensure message integrity, and act as a relay hub to distribute the unchanged records.
 
 Due to the fact that message stored on OpenMPRDB server cannot be modified, anyone on the Internet can operate an instance of OpenMPRDB. Server admin may choose whose public key to trust, and only the trusted message will be digested and applied locally.
 
-BTW, "Reputation" is a neutral word. OpenMPRDB can also accept positive reputation as well.
+BTW, "Reputation" is a neutral word: OpenMPRDB can also accept positive reputation as well.
 
 ### How
 
