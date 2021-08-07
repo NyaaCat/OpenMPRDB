@@ -75,7 +75,44 @@ Response
 - HTTP 201 `{"status":"OK","uuid":"67ae556c-7123-4..."}` // Record UUID
 - HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
 - HTTP 401 `{"status":"NG","reason":"401 Unauthorized"}`
-  
+
+### Delete Server
+
+* Only servers with no submit could be deleted using API.
+
+DELETE `/v1/server/uuid/<server_uuid>`
+
+`text/plain`
+
+PGP signed message content
+
+| Field | Type | Value | Comment |
+| --- | --- | --- | --- |
+| `timestamp` | number | `1627802588` | |
+| `comment` | string | `Revert incorrect record` | Max length: 255 bytes |
+
+Example
+
+```
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+timestamp: 1627802588
+comment: Server shutdown
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.13 (GNU/Linux)
+
+(signature block)
+-----END PGP SIGNATURE-----
+```
+
+Response
+
+- HTTP 200 `{"status":"OK","uuid":"67ae556c-7123-4..."}`
+- HTTP 400 `{"status":"NG","reason":"400 Bad Request"}`
+- HTTP 401 `{"status":"NG","reason":"401 Unauthorized"}`
+
 ### Delete Submit
 
 DELETE `/v1/submit/uuid/<submit_uuid>`
