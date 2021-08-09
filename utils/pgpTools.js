@@ -29,7 +29,7 @@ module.exports ={
         return {verified,keyID,messageData};
     },
     async getServerDataAndVerified(params,ctx){
-        let message = params.message;
+        let message = params;
         if(!message){
             throw 'messageNotExist';
         }
