@@ -48,6 +48,25 @@ module.exports ={
             uuid:uuid
         };
     },
+    async delete(params,uuid,ctx){
+        let {message,messageData,server} = await ctx.pgpTools.getServerDataAndVerified(params,ctx);
+        let servers = ctx.db.servers;
+        if(uuid!==server.uuid){
+            ctx.loggerKoa2.info('当前server delete 提交的uuid与实际签名中的key_id所指向uuid不一致。req uuid:'+uuid+'----key_id指向uuid:'+server.uuid);
+            throw 'serverNotExist';
+        }
+        let isSuccess = await servers.destroy({
+            where:{
+                uuid:uuid
+            }
+        });
+        //删除失败的情况
+        if(!isSuccess){
+            throw 'deleteFailed';
+        }
+        ctx.loggerKoa2.info('server delete 删除成功，uuid:'+uuid,JSON.stringify(messageData));
+        return {uuid};
+    },
     async getServers(params,ctx){
         let {servers} = ctx.db;
         let options = {

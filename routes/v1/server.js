@@ -16,7 +16,20 @@ serverRouter.put('/register',async function(ctx){
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
 });
-
+submitRouter.delete('/uuid/:server_uuid', async function (ctx) {
+    let errorCode = ctx.errorCode;
+    let params = ctx.request.body;
+    let server_uuid = ctx.params.server_uuid;
+    try {
+        let res = await serverService.delete(params,server_uuid,ctx);
+        ctx.httpTools.httpResponse(ctx,res);
+    } catch (e) {
+        let errorMsg = errorCode.getErrorMsg(e)
+        ctx.loggerKoa2.error('server/delete请求报错',errorMsg);
+        let status = 401;
+        ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
+    }
+});
 serverRouter.get('/list', async function (ctx) {
     let errorCode = ctx.errorCode;
     let params = ctx.request.query;
