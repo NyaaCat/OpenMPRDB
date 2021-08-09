@@ -25,7 +25,9 @@ app.context.pgpTools = pgpTools;
 app.context.commonConfig = commonConfig;
 
 
-app.use(require('koa-bodyparser')());
+app.use(require('koa-bodyparser')({
+    enableTypes: ['json', 'form', 'text']
+}));
 app.use(json());
 app.use(log4js.koaLogger());
 
