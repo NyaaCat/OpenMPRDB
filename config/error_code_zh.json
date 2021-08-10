@@ -14,5 +14,6 @@
   "pointsNotNumber": "points必须是一个数字",
   "pointsIntervalInvaid": "points必须在[-1，-0.1]或者[0.1,1]之间",
   "afterInvaid": "after参数非时间戳格式",
-  "limitInvaid": "limit参数必须为正整数"
+  "limitInvaid": "limit参数必须为正整数",
+  "requestsTooFrequently": "请求次数太过频繁，请稍后再试"
 }

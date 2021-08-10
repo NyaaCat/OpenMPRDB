@@ -8,6 +8,7 @@ const router = require('./routes');
 const log4js = require('./component/log4js');
 const httpTools = require('./component/httpTools');
 const errorCode = require('./component/errorCode');
+const interceptor = require('./interceptor');
 const pgpTools = require('./utils/pgpTools');
 const commonConfig = require('./config/common_config.json');
 
@@ -32,6 +33,8 @@ app.use(json());
 app.use(log4js.koaLogger());
 
 //app.use(require('koa-static')(__dirname + '/public'));
+//app interceptor
+app.use(interceptor.routerMethodInterceptor())
 
 // routes definition
 app.use(router.routes()).use(router.allowedMethods());

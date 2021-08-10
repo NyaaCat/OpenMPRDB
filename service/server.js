@@ -73,13 +73,11 @@ module.exports ={
             attributes:['id','uuid','server_name','key_id','public_key'],
             order:[['id','desc']]
         };
-        let limit;
-        if(params.limit){
-            limit = params.limit;
-        }else{
-            limit = ctx.commonConfig.submitsQueryLimit
+        let limit = params.limit||ctx.commonConfig.submitsQueryLimit;
+        if(!/^[0-9]*[1-9][0-9]*$/.test(limit)){
+            throw 'limitInvaid'
         }
-        options.limit = limit;
+        options.limit = parseInt(limit);
         let serverList = await  servers.findAll(options);
         return {servers:serverList};
     }
