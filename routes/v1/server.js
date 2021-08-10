@@ -16,7 +16,7 @@ serverRouter.put('/register',async function(ctx){
         ctx.httpTools.httpResponse(ctx,{reason:errorMsg},status);
     }
 });
-submitRouter.delete('/uuid/:server_uuid', async function (ctx) {
+serverRouter.delete('/uuid/:server_uuid', async function (ctx) {
     let errorCode = ctx.errorCode;
     let params = ctx.request.body;
     let server_uuid = ctx.params.server_uuid;
