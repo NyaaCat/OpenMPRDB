@@ -5,6 +5,6 @@
     "interceptMethodList": [
         "POST",
         "PUT",
-        "DELETE"
+        "GET"
     ]
 }
