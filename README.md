@@ -189,7 +189,7 @@ Response
 
 # Clients
 
-- CLI
+- CLI: [DWCarrot/openmprdb-client-cli](https://github.com/DWCarrot/openmprdb-client-cli) [RecursiveG/openmprdb-cli](https://github.com/RecursiveG/openmprdb-cli) [RimoOvO/OpenMPRDP-CLI-Python](https://github.com/RimoOvO/OpenMPRDP-CLI-Python) [wsndshx/OpenMPRDB-CLI](https://github.com/wsndshx/OpenMPRDB-CLI) [suzakuwcx/OpenMPRDB-cli](https://github.com/suzakuwcx/OpenMPRDB-cli)
 - Spigot
 - Paper
 - BungeeCord
