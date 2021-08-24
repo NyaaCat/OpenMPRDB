@@ -1,6 +1,6 @@
 {
   "publicKeyNotExist": "公钥信息不能为空",
-  "errorCodeMsgNotFound": "公钥信息不能为空",
+  "errorCodeMsgNotFound": "未知错误",
   "serverNameEmpty": "服务器名字不能为空",
   "repeatRegistration": "无需重复注册",
   "messageNotExist": "pgp消息不存在",
