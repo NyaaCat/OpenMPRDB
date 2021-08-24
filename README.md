@@ -1,5 +1,11 @@
 OpenMPRDB is an open source implementation of the "Player Reputation Database" for public Minecraft servers.
 
+**Test API Endpoint**
+
+```
+https://test.openmprdb.org
+```
+
 # API v1
 
 ### Register
