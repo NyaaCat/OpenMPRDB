@@ -1,0 +1,19 @@
+{
+  "publicKeyNotExist": "Public Key Not Found",
+  "errorCodeMsgNotFound": "Unknown Error",
+  "serverNameEmpty": "Server Name Not Found",
+  "repeatRegistration": "Server Already Exists",
+  "messageNotExist": "PGP Message Not Found",
+  "serverNotExist": "Server Not Found",
+  "publicKeyDuplicate": "Duplicate PGP KeyID",
+  "deleteFailed": "Delete Failed",
+  "messageDataInvaid": "Invalid Message Content",
+  "UUIDInvaid": "Invalid UUID",
+  "timestampInvaid": "Invalid Timestamp",
+  "playerUUIDInvaid": "Invalid Player UUID",
+  "pointsNotNumber": "Invalid Points",
+  "pointsIntervalInvaid": "Points must between [-1，-0.1] or [0.1,1]",
+  "afterInvaid": "Invalid Value for after parameter",
+  "limitInvaid": "Invalid Value for limit parameter",
+  "requestsTooFrequently": "Rate Limit Reached"
+}
