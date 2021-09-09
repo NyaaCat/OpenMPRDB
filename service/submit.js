@@ -102,7 +102,7 @@ module.exports ={
                 throw 'afterInvaid'
             }
             whereCondition.createdAt = {
-                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd h:MM:ss")
+                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd hh:MM:ss")
             }
         }
         let submitList = await submits.findAll(options);
@@ -146,7 +146,7 @@ module.exports ={
                 throw 'afterInvaid'
             }
             whereCondition.createdAt = {
-                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd h:MM:ss")
+                [Op.gt]:dateFormat(new Date(queryParams.after), "yyyy-mm-dd hh:MM:ss")
             }
         }
         let submitList = await submits.findAll(options);
